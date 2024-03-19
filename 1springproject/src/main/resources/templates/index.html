@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{vendor/head.html}"><title>1</title></head>
+<body>
+<div th:insert="~{vendor/navbar.html}"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table"  >
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Exam</th>
+                            <th scope="col">Mark</th>
+                            <th scope="col">Details</th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="st: ${students}">
+                        <tr>
+                            <td th:style=" ${st.getMark().equals('A')? ':color: gold;'
+                               : (st.getMark().equals('B')? 'color: gold;'
+                               : (st.getMark().equals('C')? 'color: blue;'
+                               : (st.getMark().equals('D')? 'color: brown;'
+                               : 'color: red;')))}"
+                                th:text="${st.getId()}"></td>
+
+                            <td th:style=" ${st.getMark().equals('A')? ':color: gold;'
+                               : (st.getMark().equals('B')? 'color: gold;'
+                               : (st.getMark().equals('C')? 'color: blue;'
+                               : (st.getMark().equals('D')? 'color: brown;'
+                               : 'color: red;')))}"
+                                th:text="${st.getName()}"></td>
+
+                            <td th:style=" ${st.getMark().equals('A')? ':color: gold;'
+                           : (st.getMark().equals('B')? 'color: gold;'
+                           : (st.getMark().equals('C')? 'color: blue;'
+                           : (st.getMark().equals('D')? 'color: brown;'
+                           : 'color: red;')))}"
+                                th:text="${st.getSurname()}"></td>
+
+
+                            <td th:style=" ${st.getMark().equals('A')? ':color: gold;'
+                               : (st.getMark().equals('B')? 'color: gold;'
+                               : (st.getMark().equals('C')? 'color: blue;'
+                               : (st.getMark().equals('D')? 'color: brown;'
+                               : 'color: red;')))}"
+                                th:text="${st.getExam()}"></td>
+
+                            <td  th:style=" ${st.getMark().equals('A')? ':color: gold;'
+                               : (st.getMark().equals('B')? 'color: gold;'
+                               : (st.getMark().equals('C')? 'color: blue;'
+                               : (st.getMark().equals('D')? 'color: brown;'
+                               : 'color: red;')))}"
+                                 th:text="${st.getMark()}"></td>
+
+                            <td><a th:href="@{/}" class="btn btn-primary">Details</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
